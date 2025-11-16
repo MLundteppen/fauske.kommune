@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fauske kulturprogram – program + detaljer (debug)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      color: #111827;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px 18px 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+    }
+
+    .subtitle {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .meta span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .meta code {
+      background: #f3f4f6;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .loading,
+    .error,
+    .empty {
+      font-size: 14px;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
+    .loading {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .error {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    .empty {
+      background: #f9fafb;
+      color: #4b5563;
+      border: 1px dashed #d1d5db;
+    }
+
+    .list {
+      margin-top: 16px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .item {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      background: #ffffff;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .item-index {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .section-label {
+      margin-top: 8px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9ca3af;
+    }
+
+    .fields {
+      margin: 2px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .field {
+      display: flex;
+      gap: 6px;
+      padding: 2px 0;
+      border-top: 1px solid #f3f4f6;
+      align-items: flex-start;
+    }
+
+    .field:first-child {
+      border-top: none;
+    }
+
+    .field-key {
+      min-width: 130px;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+      font-size: 11px;
+      text-transform: lowercase;
+      color: #6b7280;
+    }
+
+    .field-value {
+      flex: 1;
+      word-break: break-word;
+      white-space: pre-line;
+    }
+
+    .field-value a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .field-value a:hover {
+      text-decoration: underline;
+    }
+
+    .shows-wrapper {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed #e5e7eb;
+    }
+
+    .show-card {
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin-top: 4px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+    }
+
+    .show-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: #374151;
+    }
+
+    .detail-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0;
+    }
+
+    .detail-images img {
+      max-width: 160px;
+      border-radius: 8px;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 12px;
+      }
+      .field-key {
+        min-width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Fauske kulturprogram – program + detaljer (debug)</h1>
+    <p class="subtitle">
+      Viser alt som er hentet fra <code>kultur_program.json</code> og
+      <code>kultur_detaljer.json</code> med tags for feltnavn.
+    </p>
+
+    <div class="meta">
+      <span>Program sist oppdatert: <strong id="program-updated">–</strong></span>
+      <span>Detaljer sist oppdatert: <strong id="details-updated">–</strong></span>
+    </div>
+
+    <div id="loading" class="loading">Laster kulturdata …</div>
+    <div id="error" class="error" style="display:none;"></div>
+    <div id="empty" class="empty" style="display:none;">
+      Fant ingen arrangement i <code>kultur_program.json</code>.
+    </div>
+
+    <ul id="list" class="list"></ul>
+  </div>
+
+  <script>
+    const PROGRAM_URL = "data/kultur_program.json";
+    const DETAILS_URL = "data/kultur_detaljer.json";
+
+    const loadingEl = document.getElementById("loading");
+    const errorEl = document.getElementById("error");
+    const emptyEl = document.getElementById("empty");
+    const listEl = document.getElementById("list");
+    const programUpdatedEl = document.getElementById("program-updated");
+    const detailsUpdatedEl = document.getElementById("details-updated");
+
+    function formatLastUpdated(isoStr) {
+      if (!isoStr) return "–";
+      const d = new Date(isoStr);
+      if (isNaN(d.getTime())) return isoStr;
+      return (
+        d.toLocaleDateString("nb-NO", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }) +
+        " kl. " +
+        d.toLocaleTimeString("nb-NO", {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    }
+
+    function createField(key, value) {
+      const li = document.createElement("li");
+      li.className = "field";
+
+      const keySpan = document.createElement("span");
+      keySpan.className = "field-key";
+      keySpan.textContent = key;
+
+      const valueSpan = document.createElement("span");
+      valueSpan.className = "field-value";
+
+      if (
+        typeof value === "string" &&
+        (value.startsWith("http://") || value.startsWith("https://"))
+      ) {
+        const a = document.createElement("a");
+        a.href = value;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = value;
+        valueSpan.appendChild(a);
+      } else if (Array.isArray(value)) {
+        if (value.length && typeof value[0] !== "object") {
+          valueSpan.textContent = value.join(", ");
+        } else {
+          valueSpan.textContent = JSON.stringify(value, null, 2);
+        }
+      } else if (value && typeof value === "object") {
+        valueSpan.textContent = JSON.stringify(value);
+      } else {
+        valueSpan.textContent =
+          value === null || value === undefined || value === ""
+            ? "—"
+            : String(value);
+      }
+
+      li.appendChild(keySpan);
+      li.appendChild(valueSpan);
+      return li;
+    }
+
+    function renderData(programData, detailsData) {
+      const events = programData.events || [];
+      const detailsEvents = detailsData.events || [];
+
+      if (programData.lastUpdated) {
+        programUpdatedEl.textContent = formatLastUpdated(programData.lastUpdated);
+      }
+      if (detailsData.lastUpdated) {
+        detailsUpdatedEl.textContent = formatLastUpdated(detailsData.lastUpdated);
+      }
+
+      if (!events.length) {
+        emptyEl.style.display = "block";
+        return;
+      }
+
+      // Map detaljer på id for rask lookup
+      const detailsById = {};
+      detailsEvents.forEach(ev => {
+        if (ev.id) {
+          detailsById[ev.id] = ev;
+        }
+      });
+
+      events.forEach((ev, index) => {
+        const li = document.createElement("li");
+        li.className = "item";
+
+        const header = document.createElement("div");
+        header.className = "item-header";
+
+        const title = document.createElement("p");
+        title.className = "item-title";
+        title.textContent = ev.title || "(uten tittel)";
+
+        const idx = document.createElement("span");
+        idx.className = "item-index";
+        idx.textContent = `#${index + 1}  (id=${ev.id || "–"})`;
+
+        header.appendChild(title);
+        header.appendChild(idx);
+        li.appendChild(header);
+
+        // ---- PROGRAM-DEL (fra kultur_program.json) ----
+        const programFields = document.createElement("ul");
+        programFields.className = "fields";
+
+        Object.keys(ev).forEach((key) => {
+          if (key === "shows") return; // håndteres separat
+          programFields.appendChild(createField(key, ev[key]));
+        });
+
+        if (programFields.children.length) {
+          const label = document.createElement("div");
+          label.className = "section-label";
+          label.textContent = "program (kultur_program.json)";
+          li.appendChild(label);
+          li.appendChild(programFields);
+        }
+
+        // shows
+        if (Array.isArray(ev.shows) && ev.shows.length) {
+          const showsWrapper = document.createElement("div");
+          showsWrapper.className = "shows-wrapper";
+
+          const showsLabel = document.createElement("div");
+          showsLabel.className = "section-label";
+          showsLabel.textContent = `shows (${ev.shows.length})`;
+          showsWrapper.appendChild(showsLabel);
+
+          ev.shows.forEach((show, sIdx) => {
+            const showCard = document.createElement("div");
+            showCard.className = "show-card";
+
+            const showTitle = document.createElement("div");
+            showTitle.className = "show-title";
+            showTitle.textContent = `show #${sIdx + 1}`;
+            showCard.appendChild(showTitle);
+
+            const showFields = document.createElement("ul");
+            showFields.className = "fields";
+
+            Object.keys(show).forEach((sKey) => {
+              showFields.appendChild(createField(sKey, show[sKey]));
+            });
+
+            showCard.appendChild(showFields);
+            showsWrapper.appendChild(showCard);
+          });
+
+          li.appendChild(showsWrapper);
+        }
+
+        // ---- DETALJ-DEL (fra kultur_detaljer.json) ----
+        const det = ev.id ? detailsById[ev.id] : null;
+
+        if (det) {
+          const detailsLabel = document.createElement("div");
+          detailsLabel.className = "section-label";
+          detailsLabel.textContent = "detaljer (kultur_detaljer.json)";
+          li.appendChild(detailsLabel);
+
+          // Bilder vist visuelt
+          if (Array.isArray(det.images) && det.images.length) {
+            const imgWrap = document.createElement("div");
+            imgWrap.className = "detail-images";
+
+            det.images.forEach((src) => {
+              const img = document.createElement("img");
+              img.src = src;
+              img.alt = "Bilde fra arrangement";
+              imgWrap.appendChild(img);
+            });
+
+            li.appendChild(imgWrap);
+          }
+
+          const detailFields = document.createElement("ul");
+          detailFields.className = "fields";
+
+          Object.keys(det).forEach((dKey) => {
+            detailFields.appendChild(createField(dKey, det[dKey]));
+          });
+
+          li.appendChild(detailFields);
+        }
+
+        listEl.appendChild(li);
+      });
+    }
+
+    async function loadData() {
+      try {
+        const [programRes, detailsRes] = await Promise.all([
+          fetch(PROGRAM_URL, { cache: "no-store" }),
+          fetch(DETAILS_URL, { cache: "no-store" }),
+        ]);
+
+        if (!programRes.ok) {
+          throw new Error(
+            "Feil ved henting av kultur_program.json: " +
+              programRes.status +
+              " " +
+              programRes.statusText
+          );
+        }
+
+        if (!detailsRes.ok) {
+          throw new Error(
+            "Feil ved henting av kultur_detaljer.json: " +
+              detailsRes.status +
+              " " +
+              detailsRes.statusText
+          );
+        }
+
+        const programData = await programRes.json();
+        const detailsData = await detailsRes.json();
+
+        renderData(programData, detailsData);
+      } catch (err) {
+        console.error(err);
+        errorEl.style.display = "block";
+        errorEl.textContent =
+          "Det oppstod en feil ved henting/visning av kulturdata: " + err.message;
+      } finally {
+        loadingEl.style.display = "none";
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nyheter – rådata fra nyheter.json</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      color: #111827;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px 18px 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+    }
+
+    .subtitle {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .meta span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .meta code {
+      background: #f3f4f6;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .loading,
+    .error,
+    .empty {
+      font-size: 14px;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
+    .loading {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .error {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    .empty {
+      background: #f9fafb;
+      color: #4b5563;
+      border: 1px dashed #d1d5db;
+    }
+
+    .list {
+      margin-top: 16px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .item {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      background: #ffffff;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .item-index {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .item-body {
+      margin-top: 6px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .item-image {
+      flex: 0 0 120px;
+      max-width: 120px;
+    }
+
+    .item-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #e5e7eb;
+      object-fit: cover;
+      background: #f9fafb;
+    }
+
+    .fields {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+      flex: 1;
+    }
+
+    .field {
+      display: flex;
+      gap: 6px;
+      padding: 2px 0;
+      border-top: 1px solid #f3f4f6;
+      align-items: flex-start;
+    }
+
+    .field:first-child {
+      border-top: none;
+    }
+
+    .field-key {
+      min-width: 110px;
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      text-transform: lowercase;
+      color: #6b7280;
+    }
+
+    .field-value {
+      flex: 1;
+      word-break: break-word;
+      white-space: pre-line; /* gjør at \n vises som linjeskift, perfekt for body */
+    }
+
+    .field-value a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .field-value a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 12px;
+      }
+
+      .item-body {
+        flex-direction: column;
+      }
+
+      .item-image {
+        max-width: 100%;
+      }
+
+      .field-key {
+        min-width: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Nyheter – rådata</h1>
+    <p class="subtitle">
+      Viser alt scraperen har lagret i <code>nyheter.json</code>, med feltnavn og innhold.
+    </p>
+    <div class="meta">
+      <span>Sist oppdatert: <strong id="last-updated">–</strong></span>
+      <span>Antall saker: <strong id="count">0</strong></span>
+      <span>Fil: <code>data/nyheter.json</code></span>
+    </div>
+
+    <div id="loading" class="loading">Laster nyheter …</div>
+    <div id="error" class="error" style="display:none;"></div>
+    <div id="empty" class="empty" style="display:none;">
+      Ingen saker ble funnet i <code>items</code>-feltet i <code>nyheter.json</code>.
+    </div>
+
+    <ul id="list" class="list"></ul>
+  </div>
+
+  <script>
+    // Hvis index.html ligger i rot og JSON i /data:
+    const DATA_URL = "data/nyheter.json";
+    // Evt. bruk raw GitHub URL:
+    // const DATA_URL = "https://raw.githubusercontent.com/MLundteppen/fauske.kommune/main/data/nyheter.json";
+
+    const loadingEl = document.getElementById("loading");
+    const errorEl = document.getElementById("error");
+    const emptyEl = document.getElementById("empty");
+    const listEl = document.getElementById("list");
+    const lastUpdatedEl = document.getElementById("last-updated");
+    const countEl = document.getElementById("count");
+
+    function formatLastUpdated(isoStr) {
+      if (!isoStr) return "–";
+      const d = new Date(isoStr);
+      if (isNaN(d.getTime())) return isoStr;
+      return (
+        d.toLocaleDateString("nb-NO", {
+          year: "numeric",
+          month: "short",
+          day: "numeric"
+        }) +
+        " kl. " +
+        d.toLocaleTimeString("nb-NO", {
+          hour: "2-digit",
+          minute: "2-digit"
+        })
+      );
+    }
+
+    function createField(key, value) {
+      const li = document.createElement("li");
+      li.className = "field";
+
+      const keySpan = document.createElement("span");
+      keySpan.className = "field-key";
+      keySpan.textContent = key;
+
+      const valueSpan = document.createElement("span");
+      valueSpan.className = "field-value";
+
+      if ((key === "url" || key === "imageUrl") && value) {
+        const a = document.createElement("a");
+        a.href = value;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = value;
+        valueSpan.appendChild(a);
+      } else {
+        valueSpan.textContent =
+          value == null || value === "" ? "—" : String(value);
+      }
+
+      li.appendChild(keySpan);
+      li.appendChild(valueSpan);
+      return li;
+    }
+
+    function renderItems(data) {
+      const items = Array.isArray(data.items) ? data.items : [];
+
+      lastUpdatedEl.textContent = formatLastUpdated(data.lastUpdated);
+      countEl.textContent = items.length.toString();
+
+      if (!items.length) {
+        emptyEl.style.display = "block";
+        return;
+      }
+
+      items.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "item";
+
+        const header = document.createElement("div");
+        header.className = "item-header";
+
+        const title = document.createElement("p");
+        title.className = "item-title";
+        title.textContent = item.title || "Uten tittel";
+
+        const idx = document.createElement("span");
+        idx.className = "item-index";
+        idx.textContent = `#${index + 1}`;
+
+        header.appendChild(title);
+        header.appendChild(idx);
+
+        const body = document.createElement("div");
+        body.className = "item-body";
+
+        // Bildepreview
+        if (item.imageUrl) {
+          const imgWrapper = document.createElement("div");
+          imgWrapper.className = "item-image";
+          const img = document.createElement("img");
+          img.src = item.imageUrl;
+          img.alt = item.title || "Nyhetsbilde";
+          imgWrapper.appendChild(img);
+          body.appendChild(imgWrapper);
+        }
+
+        const fieldsList = document.createElement("ul");
+        fieldsList.className = "fields";
+
+        // Alle relevante felter – nå inkl. body
+        const orderedKeys = [
+          "title",
+          "url",
+          "imageUrl",
+          "published",
+          "publishedText",
+          "ingress",
+          "body",
+          "source"
+        ];
+
+        orderedKeys.forEach((key) => {
+          if (key in item) {
+            fieldsList.appendChild(createField(key, item[key]));
+          }
+        });
+
+        body.appendChild(fieldsList);
+
+        li.appendChild(header);
+        li.appendChild(body);
+        listEl.appendChild(li);
+      });
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch(DATA_URL, { cache: "no-store" });
+        if (!res.ok) {
+          throw new Error("HTTP " + res.status + " " + res.statusText);
+        }
+        const data = await res.json();
+        renderItems(data);
+      } catch (err) {
+        console.error(err);
+        errorEl.style.display = "block";
+        errorEl.textContent =
+          "Det oppstod en feil ved henting av nyheter: " + err.message;
+      } finally {
+        loadingEl.style.display = "none";
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

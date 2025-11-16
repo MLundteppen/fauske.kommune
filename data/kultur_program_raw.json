@@ -1,0 +1,275 @@
+{
+  "lastUpdated": "2025-11-16T15:18:53.854896+00:00",
+  "raw": {
+    "shows": [
+      {
+        "__typename": "Show",
+        "screenName": "Fauske kino",
+        "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15153/purchase?kanal=dxf",
+        "showType": "",
+        "showStart": "2025-11-23T19:00:00",
+        "movieVersionId": "KUL20232279",
+        "movieTitle": "Sexy Nok // Iren Reppen"
+      },
+      {
+        "__typename": "Show",
+        "screenName": "Fauske kino",
+        "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15200/purchase?kanal=dxf",
+        "showType": "",
+        "showStart": "2025-12-07T18:00:00",
+        "movieVersionId": "KUL20250060",
+        "movieTitle": "Stille lys // Jan Gunnar Hoff /m Ketil Hugaas"
+      },
+      {
+        "__typename": "Show",
+        "screenName": "Fauske kino",
+        "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15237/purchase?kanal=dxf",
+        "showType": "",
+        "showStart": "2025-12-12T18:00:00",
+        "movieVersionId": "KUL20250148",
+        "movieTitle": "Julefantasi med Sandra Lyng, Kim Wigaard & Fauske Blandakor"
+      },
+      {
+        "__typename": "Show",
+        "screenName": "Fauske kino",
+        "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15336/purchase?kanal=dxf",
+        "showType": "",
+        "showStart": "2025-12-12T20:30:00",
+        "movieVersionId": "KUL20250148",
+        "movieTitle": "Julefantasi med Sandra Lyng, Kim Wigaard & Fauske Blandakor"
+      },
+      {
+        "__typename": "Show",
+        "screenName": "Fauske Bygdetun",
+        "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15338/purchase?kanal=dxf",
+        "showType": "",
+        "showStart": "2025-12-13T15:30:00",
+        "movieVersionId": "KUL20250383",
+        "movieTitle": "Jul på Tunet"
+      },
+      {
+        "__typename": "Show",
+        "screenName": "Fauske kino",
+        "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15311/purchase?kanal=dxf",
+        "showType": "",
+        "showStart": "2026-02-06T19:00:00",
+        "movieVersionId": "KUL20250052",
+        "movieTitle": "Erlend Osnes - Fermentert"
+      },
+      {
+        "__typename": "Show",
+        "screenName": "Vestmyra skole",
+        "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15309/purchase?kanal=dxf",
+        "showType": "",
+        "showStart": "2026-02-19T19:00:00",
+        "movieVersionId": "KUL20250350",
+        "movieTitle": "Misery // Nordland teater"
+      }
+    ],
+    "fwpakkeArticles": {
+      "KUL20250383": {
+        "_type": "fwpakkeKulturomtale",
+        "image": {
+          "_createdAt": "2025-11-13T13:30:59Z",
+          "_id": "caf24a6b-69db-4a26-8036-9bf3b06bfc92",
+          "_rev": "b0cDxfOsSECTrj9CCYBjDy",
+          "_type": "fwpakkeImageDocument",
+          "_updatedAt": "2025-11-13T13:31:48Z",
+          "altText": "AI generert bilde av Fauske Bygdetun med Jul i Flåklypa plakaten over.",
+          "image": {
+            "_key": "a6054b31-391f-45a6-9b54-966d038d0a45",
+            "_type": "image",
+            "asset": {
+              "_key": "d0ff2465-a059-4a60-8371-b5a21b56e5ff",
+              "_ref": "image-9ac0be51b32ff26d643b7db8569ab84475cc8fdf-1920x1080-jpg",
+              "_type": "reference"
+            },
+            "hotspot": {
+              "height": 0.05,
+              "width": 0.05,
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "title": "Utekino"
+        },
+        "kulnr": {
+          "_type": "slug",
+          "current": "KUL20250383"
+        },
+        "title": "Utekino med Jul i Flåklypa // Jul på Tunet",
+        "titleOverride": null
+      },
+      "KUL20250350": {
+        "_type": "fwpakkeKulturomtale",
+        "image": {
+          "_createdAt": "2025-10-16T11:03:27Z",
+          "_id": "5cff8e1c-5c7f-4414-ae4c-0eeb7ddf1f1f",
+          "_rev": "ZJBWSISvCCajxlydfDXsB9",
+          "_type": "fwpakkeImageDocument",
+          "_updatedAt": "2025-10-16T11:04:29Z",
+          "altText": "Misery plaketen",
+          "image": {
+            "_key": "063c5585-56ef-4773-a510-1f868da1f4e0",
+            "_type": "image",
+            "asset": {
+              "_key": "86fc63fa-fe22-427e-9ef8-d77c96340ba0",
+              "_ref": "image-5ae43cf0e7dba20d89b352a320577d7101fdf9cb-3840x2160-jpg",
+              "_type": "reference"
+            },
+            "hotspot": {
+              "height": 0.05,
+              "width": 0.05,
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "title": "Misery"
+        },
+        "kulnr": {
+          "_type": "slug",
+          "current": "KUL20250350"
+        },
+        "title": "Misery // Nordland Teater",
+        "titleOverride": null
+      },
+      "KUL20232279": {
+        "_type": "fwpakkeKulturomtale",
+        "image": {
+          "_createdAt": "2025-03-13T12:27:10Z",
+          "_id": "4a10d279-9b6a-4265-965f-936e3a0c433e",
+          "_rev": "v59ZuCu1upEzjTgPmxS3Zl",
+          "_type": "fwpakkeImageDocument",
+          "_updatedAt": "2025-03-13T12:28:01Z",
+          "altText": "Bilde av Iren Reppen med teksten Sexy Nok og Iren Reppen",
+          "image": {
+            "_key": "afd76524-87c1-414c-a951-a103a59e59f2",
+            "_type": "image",
+            "asset": {
+              "_key": "fe397998-7842-4e9b-983f-1bee616029fe",
+              "_ref": "image-e07c625824326cb299465f10c7d4e1590a1f1463-1920x1005-jpg",
+              "_type": "reference"
+            },
+            "hotspot": {
+              "height": 0.13432835820895522,
+              "width": 0.0703125,
+              "x": 0.8341145833333333,
+              "y": 0.16169154228855723
+            }
+          },
+          "title": "Plakat Iren Reppen, Sexy Nok"
+        },
+        "kulnr": {
+          "_type": "slug",
+          "current": "KUL20232279"
+        },
+        "title": "Sexy Nok // Iren Reppen",
+        "titleOverride": null
+      },
+      "KUL20250052": {
+        "_type": "fwpakkeKulturomtale",
+        "image": {
+          "_createdAt": "2025-06-05T09:17:08Z",
+          "_id": "d4754161-0f3c-4a7a-bba3-765d19696b06",
+          "_rev": "sGWRChmueLgzhibo5PBTFq",
+          "_type": "fwpakkeImageDocument",
+          "_updatedAt": "2025-06-05T09:17:41Z",
+          "altText": "Erlend Osnes med teksten Fermentert under",
+          "image": {
+            "_key": "ee1b68da-c0ad-41ab-9df1-37ba682ef12a",
+            "_type": "image",
+            "asset": {
+              "_key": "4c235463-c198-4818-a2a9-d3b009d2266c",
+              "_ref": "image-5245572ff6adcb93e19dcd5ba4ffaa052f5a3cc0-2426x1365-jpg",
+              "_type": "reference"
+            },
+            "hotspot": {
+              "height": 0.17362637362637362,
+              "width": 0.0976916735366859,
+              "x": 0.5138087386644683,
+              "y": 0.31465201465201464
+            }
+          },
+          "title": "Erlend Osnes Fermentert"
+        },
+        "kulnr": {
+          "_type": "slug",
+          "current": "KUL20250052"
+        },
+        "title": "Erlend Osnes - Fermentert",
+        "titleOverride": null
+      },
+      "KUL20250148": {
+        "_type": "fwpakkeKulturomtale",
+        "image": {
+          "_createdAt": "2025-08-01T08:27:44Z",
+          "_id": "fb548ccc-d618-42cb-b289-a0c68af39f9f",
+          "_rev": "g1N9SK1ICZ17hbV8aQnP2g",
+          "_type": "fwpakkeImageDocument",
+          "_updatedAt": "2025-08-01T08:28:29Z",
+          "altText": "Sandra Lyng til venstre som holder rundt armen til Kim Wigaard.",
+          "image": {
+            "_key": "81b8467f-7e1f-4b3f-86c2-1bc79b8dc914",
+            "_type": "image",
+            "asset": {
+              "_key": "d4414ea7-4574-4274-8c84-f6578d59374d",
+              "_ref": "image-63885d44c8a056fdc298b71ce5941ad6dd284c16-1080x810-jpg",
+              "_type": "reference"
+            },
+            "hotspot": {
+              "height": 0.10123456790123457,
+              "width": 0.07592592592592592,
+              "x": 0.35,
+              "y": 0.3654320987654321
+            }
+          },
+          "title": "Julefantasi med Sandra Lyng, Kim Wigaard & Fauske Blandakor"
+        },
+        "kulnr": {
+          "_type": "slug",
+          "current": "KUL20250148"
+        },
+        "title": "Julefantasi med Sandra Lyng, Kim Wigaard & Fauske Blandakor",
+        "titleOverride": null
+      },
+      "KUL20250060": {
+        "_type": "fwpakkeKulturomtale",
+        "image": {
+          "_createdAt": "2025-06-16T10:49:05Z",
+          "_id": "ac4cf222-2feb-4e3b-beba-7b8da8a035cb",
+          "_rev": "q1rMw98IYC2Wzl2aJxRmZT",
+          "_system": {
+            "base": {
+              "id": "ac4cf222-2feb-4e3b-beba-7b8da8a035cb",
+              "rev": "4cb7rFPCrvVmQdXy4CNOEy"
+            }
+          },
+          "_type": "fwpakkeImageDocument",
+          "_updatedAt": "2025-10-08T12:17:56Z",
+          "altText": "Jan Gunnar Hoff som spiller på flygel",
+          "image": {
+            "_key": "01d9146c-5943-4f93-8a6c-076e9acf66e0",
+            "_type": "image",
+            "asset": {
+              "_ref": "image-1c603243bbee5e3ef87a8ccf127261609a65bf6b-2048x1365-jpg",
+              "_type": "reference"
+            },
+            "hotspot": {
+              "height": 0.05,
+              "width": 0.05,
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "title": "Stille lys // Jan Gunnar Hoff"
+        },
+        "kulnr": {
+          "_type": "slug",
+          "current": "KUL20250060"
+        },
+        "title": "Stille lys // Jan Gunnar Hoff /m Ketil Hugaas",
+        "titleOverride": null
+      }
+    }
+  }
+}

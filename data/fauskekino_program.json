@@ -1,0 +1,249 @@
+{
+  "lastUpdated": "2025-11-16T13:12:57.608823+00:00",
+  "movies": [
+    {
+      "id": "FOP20240225",
+      "title": "Dyrenes magiske jul",
+      "slug": null,
+      "movieType": null,
+      "isAdvanceSale": null,
+      "is3D": null,
+      "isSubtitled": null,
+      "ageLimit": null,
+      "shows": [
+        {
+          "showId": null,
+          "start": "2025-11-16T17:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15319/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tale",
+            "Norsk tekst"
+          ]
+        },
+        {
+          "showId": null,
+          "start": "2025-11-29T13:30:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15327/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tale",
+            "Norsk tekst"
+          ]
+        },
+        {
+          "showId": null,
+          "start": "2025-11-30T17:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15329/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tale",
+            "Norsk tekst"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NOR20230617",
+      "title": "Hvis ingen går i fella",
+      "slug": null,
+      "movieType": null,
+      "isAdvanceSale": null,
+      "is3D": null,
+      "isSubtitled": null,
+      "ageLimit": null,
+      "shows": [
+        {
+          "showId": null,
+          "start": "2025-11-18T18:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15321/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tekst"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EDI20251701",
+      "title": "Nord mot verden",
+      "slug": null,
+      "movieType": null,
+      "isAdvanceSale": null,
+      "is3D": null,
+      "isSubtitled": null,
+      "ageLimit": null,
+      "shows": [
+        {
+          "showId": null,
+          "start": "2025-12-05T20:15:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15331/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tekst"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EDI20251302",
+      "title": "Nürnberg",
+      "slug": null,
+      "movieType": null,
+      "isAdvanceSale": null,
+      "is3D": null,
+      "isSubtitled": null,
+      "ageLimit": null,
+      "shows": [
+        {
+          "showId": null,
+          "start": "2025-11-30T19:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15330/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tekst"
+          ]
+        },
+        {
+          "showId": null,
+          "start": "2025-12-03T20:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15334/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tekst"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EDI20240683",
+      "title": "Predator: Badlands",
+      "slug": null,
+      "movieType": null,
+      "isAdvanceSale": null,
+      "is3D": null,
+      "isSubtitled": null,
+      "ageLimit": null,
+      "shows": [
+        {
+          "showId": null,
+          "start": "2025-11-18T20:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15322/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tekst"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EDI20250639",
+      "title": "Springsteen: Deliver Me from Nowhere",
+      "slug": null,
+      "movieType": null,
+      "isAdvanceSale": null,
+      "is3D": null,
+      "isSubtitled": null,
+      "ageLimit": null,
+      "shows": [
+        {
+          "showId": null,
+          "start": "2025-11-16T19:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15337/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tekst"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "UIP20221390",
+      "title": "Wicked: For Good",
+      "slug": null,
+      "movieType": null,
+      "isAdvanceSale": null,
+      "is3D": null,
+      "isSubtitled": null,
+      "ageLimit": null,
+      "shows": [
+        {
+          "showId": null,
+          "start": "2025-11-19T18:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15325/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tekst",
+            "Original tale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BVI20240782",
+      "title": "Zootropolis 2",
+      "slug": null,
+      "movieType": null,
+      "isAdvanceSale": null,
+      "is3D": null,
+      "isSubtitled": null,
+      "ageLimit": null,
+      "shows": [
+        {
+          "showId": null,
+          "start": "2025-11-26T18:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15326/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tale",
+            "Norsk tekst"
+          ]
+        },
+        {
+          "showId": null,
+          "start": "2025-11-29T15:30:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15328/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tale",
+            "Norsk tekst"
+          ]
+        },
+        {
+          "showId": null,
+          "start": "2025-12-02T18:00:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15332/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tale",
+            "Norsk tekst"
+          ]
+        },
+        {
+          "showId": null,
+          "start": "2025-12-03T17:30:00",
+          "screen": "Fauske kino",
+          "ticketUrl": "https://checkout.ebillett.no/102/events/15333/purchase?kanal=dxf",
+          "tags": [
+            "2D",
+            "Norsk tale",
+            "Norsk tekst"
+          ]
+        }
+      ]
+    }
+  ]
+}

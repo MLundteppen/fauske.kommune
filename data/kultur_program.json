@@ -1,0 +1,95 @@
+{
+  "lastUpdated": "2025-11-16T15:18:53.856401+00:00",
+  "events": [
+    {
+      "id": "KUL20232279",
+      "title": "Sexy Nok // Iren Reppen",
+      "movieTitle": "Sexy Nok // Iren Reppen",
+      "url": "https://www.fauskekino.no/kulturprogram/KUL20232279",
+      "shows": [
+        {
+          "screenName": "Fauske kino",
+          "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15153/purchase?kanal=dxf",
+          "showStart": "2025-11-23T19:00:00",
+          "showType": ""
+        }
+      ]
+    },
+    {
+      "id": "KUL20250060",
+      "title": "Stille lys // Jan Gunnar Hoff /m Ketil Hugaas",
+      "movieTitle": "Stille lys // Jan Gunnar Hoff /m Ketil Hugaas",
+      "url": "https://www.fauskekino.no/kulturprogram/KUL20250060",
+      "shows": [
+        {
+          "screenName": "Fauske kino",
+          "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15200/purchase?kanal=dxf",
+          "showStart": "2025-12-07T18:00:00",
+          "showType": ""
+        }
+      ]
+    },
+    {
+      "id": "KUL20250148",
+      "title": "Julefantasi med Sandra Lyng, Kim Wigaard & Fauske Blandakor",
+      "movieTitle": "Julefantasi med Sandra Lyng, Kim Wigaard & Fauske Blandakor",
+      "url": "https://www.fauskekino.no/kulturprogram/KUL20250148",
+      "shows": [
+        {
+          "screenName": "Fauske kino",
+          "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15237/purchase?kanal=dxf",
+          "showStart": "2025-12-12T18:00:00",
+          "showType": ""
+        },
+        {
+          "screenName": "Fauske kino",
+          "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15336/purchase?kanal=dxf",
+          "showStart": "2025-12-12T20:30:00",
+          "showType": ""
+        }
+      ]
+    },
+    {
+      "id": "KUL20250383",
+      "title": "Utekino med Jul i Flåklypa // Jul på Tunet",
+      "movieTitle": "Jul på Tunet",
+      "url": "https://www.fauskekino.no/kulturprogram/KUL20250383",
+      "shows": [
+        {
+          "screenName": "Fauske Bygdetun",
+          "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15338/purchase?kanal=dxf",
+          "showStart": "2025-12-13T15:30:00",
+          "showType": ""
+        }
+      ]
+    },
+    {
+      "id": "KUL20250052",
+      "title": "Erlend Osnes - Fermentert",
+      "movieTitle": "Erlend Osnes - Fermentert",
+      "url": "https://www.fauskekino.no/kulturprogram/KUL20250052",
+      "shows": [
+        {
+          "screenName": "Fauske kino",
+          "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15311/purchase?kanal=dxf",
+          "showStart": "2026-02-06T19:00:00",
+          "showType": ""
+        }
+      ]
+    },
+    {
+      "id": "KUL20250350",
+      "title": "Misery // Nordland Teater",
+      "movieTitle": "Misery // Nordland teater",
+      "url": "https://www.fauskekino.no/kulturprogram/KUL20250350",
+      "shows": [
+        {
+          "screenName": "Vestmyra skole",
+          "ticketSaleUrl": "https://checkout.ebillett.no/102/events/15309/purchase?kanal=dxf",
+          "showStart": "2026-02-19T19:00:00",
+          "showType": ""
+        }
+      ]
+    }
+  ]
+}

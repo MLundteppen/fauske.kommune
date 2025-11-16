@@ -1,0 +1,455 @@
+{
+  "lastUpdated": "2025-11-16T13:12:59.962769+00:00",
+  "films": [
+    {
+      "id": "FOP20240225",
+      "title": "Dyrenes magiske jul",
+      "originalTitle": "Animal tales of Christmas magic",
+      "age": "Tillatt for alle",
+      "ageReason": "Filmen inneholder ingen scener som antas å være skadelig for barn.",
+      "recommendedAge": "Barn",
+      "runningTime": "1 t. 12 min.",
+      "nationality": [
+        "Frankrike"
+      ],
+      "originalLanguage": [],
+      "genres": [],
+      "cast": "",
+      "director": "",
+      "distributor": "Storytelling Media",
+      "ingress": "",
+      "description": "Fortryllende historier utspiller seg i Dyrenes magiske jul, der festlige underverk blir til virkelighet. Fordyp deg i disse hjertevarmende og moderne fortellingene mens dyr legger ut på fortryllende reiser fra Frankrike til Japan, helt til det høye nord og nordlyset, og sprer glede og gavmildhet. Hver historie er et eventyrlig kapittel fylt med sjarm, latter og vinterens skjønnhet. La poesien fange hjertet ditt og ta deg med til en verden der julemagien ikke kjenner noen grenser.",
+      "oneliner": "",
+      "posterUrl": "https://cdn.sanity.io/images/j0wdmpyb/production/d18b9d53d2ef2cd8b8e81f4e1bc430d67d59e5e8-1500x2121.webp",
+      "stills": [
+        "https://cdn.sanity.io/images/j0wdmpyb/production/b103ef77cce457e9f0410471cb5a0ba1b2fe90e9-1920x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/bf7583ab0d0b4eeaaeb31cb8233de6cc02340857-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/4007f06d73432be3c446ccc3cdc97457f8c53d47-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/2665a2a4d1084498567631e2d3ef10f66825657b-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/54b933b770b6126bed99b83d2c04232bac360953-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/3234be4b29b863e0ae0485a286669737f0905d55-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/d42bad998b2122cd3b774d5aac736a97951b1bf1-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/ccb61e8b1861a9a0f783fd09e1d20603e81959bc-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/d51d931a651c7d6219f6dd5ace8d177ea9b2821e-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/52a4f85bf96b363dd66d9650c8066ac1f9bc8aaa-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/5201271b27449a4c728297a60bc0dec5bfe2e280-2048x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/26b59669bc2825e15ee0950b27496b7ac5d4fb7c-2048x1080.jpg"
+      ],
+      "trailers": [
+        "117200091"
+      ],
+      "isKinoklubb": false,
+      "programTitle": "Dyrenes magiske jul",
+      "programSlug": null,
+      "movieType": null
+    },
+    {
+      "id": "NOR20230617",
+      "title": "Hvis ingen går i fella",
+      "originalTitle": "Hvis ingen går i fella",
+      "age": "6 år",
+      "ageReason": "Filmen har en humoristisk grunnstemning, men inneholder enkelte sekvenser som kan virke litt voldsomme på de aller yngste. Filmen får derfor aldersgrense 6 år.",
+      "recommendedAge": "",
+      "runningTime": "1 t. 20 min.",
+      "nationality": [
+        "Norge"
+      ],
+      "originalLanguage": [
+        "Norsk"
+      ],
+      "genres": [
+        {
+          "_createdAt": "2022-05-18T12:13:39Z",
+          "_id": "W2etTPhLHMI4IZP4gJ2031",
+          "_rev": "qf6HKovmGfak3fi7JyH6YV",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:24:36Z",
+          "fomId": 1361,
+          "name": "Komedie"
+        },
+        {
+          "_createdAt": "2022-05-18T12:13:32Z",
+          "_id": "qf6HKovmGfak3fi7Jy5P23",
+          "_rev": "At3pe7rl8ClblZrBfUyHIH",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:22:24Z",
+          "fomId": 1368,
+          "name": "Familiefilm"
+        }
+      ],
+      "cast": "Pål Sverre Hagen,Sara Khorami,Vegard Strand Eide,Flo Fagerli,Jon Øigarden,Jonis Josef,Jakob Oftebro,Charlotte Frogner,Vivild Falk Berg",
+      "director": "Henrik Martin Dahlsbakken",
+      "distributor": "Nordisk Film Distribusjon",
+      "ingress": "Årets store julefilm, for liten og stor.",
+      "description": "\"Frisk og actionfylt julefilm med mye humor\" - NRK\n\n\"Førsteklasses familieunderholdning\" - Dagsavisen\n\n\"Vill, morsom og helt umulig å mislike\" - Aftenposten\n\n\"Hysterisk morsom action-julekomedie\" - Stavanger Aftenblad\n\nEn familie fra byen har lånt tantens forlatte hus for å feire en gammeldags jul på landet, uten å ane at huset allerede er bebodd! En høyst uvanlig musefamilie har nemlig også pyntet og er klare til jul, og de er ikke interessert i besøk. Dermed er det bare en ting å gjøre: rigge fellene, skjerpe sansene og forsvare huset med værhår, snedige oppfinnelser og musekrefter. \n \nFritt inspirert av Hollywoods store underholdningsfilmer og Alf Prøysens Musevisa kommer en leken, morsom og actionfylt film for hele familien.\n \nHvem vinner julen til slutt - mus eller mennesker?",
+      "oneliner": "",
+      "posterUrl": "https://cdn.sanity.io/images/j0wdmpyb/production/62454791789ea44a6e46903a69462f8ca8b8aebe-1240x1754.jpg",
+      "stills": [
+        "https://cdn.sanity.io/images/j0wdmpyb/production/b46b1eea067bef8f6f1b8b51c1ba4ecdeac3dab8-2945x1613.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/d4698ffdb558bd13b98f3600d7fdf22b04b26f54-3441x1946.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/7ed46014236bf36ca8967f1c4b0388173941a6d1-3927x2030.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/04f19dded1ebf9e498cef945e5e620c2a2a7b94e-1240x1754.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/7d845b445a912b63360e553005bf37fea5acc96d-3996x2160.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/9915cfc27397daa7c0df01d197eca7849dd3b1e1-3264x1985.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/eeae3267f6c33ca048cac17f9a7e6bdadf801aad-3827x2083.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/0d68f37b007d3622f2438efe69f06580d506efe2-3000x1800.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/d182a2a306a033d2bac9850442c9cce3a3a78baf-3576x1937.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/d1fa90de8edf29579dc8c4fe91801a9c46d2425b-3996x2160.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/ff830d6eb080c97c9ee8491ae209f53ddca6c446-3718x2017.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/1e86c5350e44f4abd93669f6af6e1fe26bd3e70f-3996x2160.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/3046b7b7ea8cf72d313ae1285614f6ca031c4157-3264x1763.png",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/cce3510ebd2a14511c9d9f8c55b3cf29f97e26f0-3996x2160.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/f0a99860a7a5d9c6f90c951994c6a5c000c81565-3996x2160.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/429cf6feb6cc00b744019632f85bccee8286fa1f-3467x1871.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/65cebb39af8eaf58045dc037e2f1119627c37b8e-3773x2089.jpg"
+      ],
+      "trailers": [
+        "116911743"
+      ],
+      "isKinoklubb": false,
+      "programTitle": "Hvis ingen går i fella",
+      "programSlug": null,
+      "movieType": null
+    },
+    {
+      "id": "EDI20251701",
+      "title": "Nord mot verden",
+      "originalTitle": "",
+      "age": "9 år",
+      "ageReason": "Språkbruk",
+      "recommendedAge": "",
+      "runningTime": "1 t. 5 min.",
+      "nationality": [
+        "Norge"
+      ],
+      "originalLanguage": [
+        "Norsk"
+      ],
+      "genres": [
+        {
+          "_createdAt": "2022-05-18T12:13:27Z",
+          "_id": "W2etTPhLHMI4IZP4gJ1ze1",
+          "_rev": "At3pe7rl8ClblZrBfUyorS",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:26:19Z",
+          "fomId": 1373,
+          "name": "Dokumentar"
+        }
+      ],
+      "cast": "",
+      "director": "Leif-Roald Larssen",
+      "distributor": "Realfilm",
+      "ingress": "",
+      "description": "",
+      "oneliner": "",
+      "posterUrl": "https://cdn.sanity.io/images/j0wdmpyb/production/22474fb8928f9c97b8e938bf1610aab5e83f8157-1500x2122.webp",
+      "stills": [],
+      "trailers": [],
+      "isKinoklubb": false,
+      "programTitle": "Nord mot verden",
+      "programSlug": null,
+      "movieType": null
+    },
+    {
+      "id": "EDI20251302",
+      "title": "Nürnberg",
+      "originalTitle": "",
+      "age": "12 år",
+      "ageReason": "",
+      "recommendedAge": "Voksne",
+      "runningTime": "2 t. 28 min.",
+      "nationality": [
+        "USA"
+      ],
+      "originalLanguage": [
+        "Tysk",
+        "Engelsk"
+      ],
+      "genres": [
+        {
+          "_createdAt": "2022-05-18T12:13:41Z",
+          "_id": "At3pe7rl8ClblZrBfUZ9bS",
+          "_rev": "At3pe7rl8ClblZrBfUyToJ",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:24:21Z",
+          "fomId": 1359,
+          "name": "Krigsfilm"
+        },
+        {
+          "_createdAt": "2022-05-18T12:13:28Z",
+          "_id": "W2etTPhLHMI4IZP4gJ1zgR",
+          "_rev": "W2etTPhLHMI4IZP4gJ9GDV",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:26:27Z",
+          "fomId": 1372,
+          "name": "Drama"
+        },
+        {
+          "_createdAt": "2022-05-18T12:13:56Z",
+          "_id": "W2etTPhLHMI4IZP4gJ20z5",
+          "_rev": "At3pe7rl8ClblZrBfUyDZ2",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:21:51Z",
+          "fomId": 1347,
+          "name": "Thriller"
+        },
+        {
+          "_createdAt": "2022-05-18T12:13:24Z",
+          "_id": "qf6HKovmGfak3fi7Jy5OJt",
+          "_rev": "qf6HKovmGfak3fi7JyHEtJ",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:26:47Z",
+          "fomId": 1375,
+          "name": "Biografi"
+        }
+      ],
+      "cast": "Richard E. Grant, Colin Hanks, Russell Crowe, Rami Malek, Leo Woodall, Michael Shannon, John Slattery",
+      "director": "James Vanderbilt",
+      "distributor": "SF Norge",
+      "ingress": "",
+      "description": "I kjølvannet av andre verdenskrig får den amerikanske psykiateren Douglas Kelley (Rami Malek) i oppgave å vurdere den mentale tilstanden til Hermann Göring (Russell Crowe) og andre høytstående naziledere. Samtidig samler de allierte krefter for å etablere Nürnberg-domstolen, et historisk oppgjør med Det tredje riket. Mens rettsprosessen tar form, trekkes Kelley inn i en intens psykologisk duell med Göring. En kamp som avdekker den urovekkende sannheten om hvordan vanlige menn, kan begå onde handlinger.",
+      "oneliner": "",
+      "posterUrl": "https://cdn.sanity.io/images/j0wdmpyb/production/b1cd39b6ca46bbc141dca1575dd0a2a7f61dcabd-1240x1754.jpg",
+      "stills": [
+        "https://cdn.sanity.io/images/j0wdmpyb/production/bde5371090989e01fabc9bda59053b42a2ce3d3a-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/662e19155ab454d6a905dabde1a7b08639bd0cd0-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/20ea8f31cc9cb8f7a2b3395d467e00544c03166e-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/1dec6bb8e084406551235d8f64bb76e4e3f991ee-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/0b0703fea5f678a93359eb426069cdd1ba27526b-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/3a193183f1367ae885e1367683147a404e6bc82e-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/856b310fc95bf213536c77defe100256ae8b1c4b-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/5aff5c310f70df719c17ad195b4e153e5aa8acce-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/d3d37b8bb6aec9514f00d1a96db626abeb4041ea-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/b5018fc5c9978863de35437f61e3b66981427c89-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/a06b2b259b9c77ba4eeb40f4764de47a7a50fc71-4000x2616.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/5c4edcb14948b8b68cd60bdd6ca0487a07b525b1-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/4719ce93e950ddf15daf99b165df72fe06259e55-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/b3a5ae27193ef901e7dc71ba8b6def4197f218c6-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/a4b16139d3fabc8b15c264dbfdbfdd959f3a4cc7-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/9f56a476c42fa35f364d9232472f6a8f6a5100da-4000x2667.webp"
+      ],
+      "trailers": [
+        "117567245"
+      ],
+      "isKinoklubb": false,
+      "programTitle": "Nürnberg",
+      "programSlug": null,
+      "movieType": null
+    },
+    {
+      "id": "EDI20240683",
+      "title": "Predator: Badlands",
+      "originalTitle": "Predator: Badlands",
+      "age": "15 år",
+      "ageReason": "Denne filmen inneholder store mengder actionvold med nærgående bilder samt gjennomgående mørk og truende stemning. Filmen får der for 15 år.",
+      "recommendedAge": "Ungdom / Voksne",
+      "runningTime": "1 t. 46 min.",
+      "nationality": [
+        "USA"
+      ],
+      "originalLanguage": [],
+      "genres": [],
+      "cast": "Elle Fanning, Dimitrius Schuster-Koloamatangi",
+      "director": "Dan Trachtenberg",
+      "distributor": "The Walt Disney Company Nordic",
+      "ingress": "Fra regissøren av Prey kommer Predator: Badlands",
+      "description": "Den nyeste filmen i Predator-serien er satt til en planet langt borte, mange år inn i fremtiden. En ung Predator (Dimitrius Schuster-Koloamatangi) allierer seg med Thia (Elle Fanning), mens han jakter på sitt livs farligste fiende.",
+      "oneliner": "",
+      "posterUrl": "https://cdn.sanity.io/images/j0wdmpyb/production/d9659212059f10957dd3a3f8b1809fa17107039a-1500x2143.webp",
+      "stills": [
+        "https://cdn.sanity.io/images/j0wdmpyb/production/cf55dcfd11965aca1381ab8d181f10a25b6c95c6-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/118c8465c01674e7f4e8e532fccc926be322df4c-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/179492753d893b0939f9bea4edc61b0f53324e0a-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/e61d1b256bdaa82ba69759c1601f96f5e9bc7b1a-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/12d5d3fbbfc4e5c9f2c4d4a820b090bf45291140-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/74bd74bfeb05785a67f8e6a1e1da5b9203c13ba8-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/6f3c4d044420bb4a179ca634b5960b2fb8f1b3be-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/459a192d887dc76df2d206f443646a687fb39209-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/e45f1cef90280b2f3da6e283da88ad30b37240b9-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/43dfce984bfe652f87dd08e9a3132675c9f2c645-4000x1676.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/e331b4d8f3255807b573b370e0158dc21aca1578-4000x1676.webp"
+      ],
+      "trailers": [
+        "117142488"
+      ],
+      "isKinoklubb": false,
+      "programTitle": "Predator: Badlands",
+      "programSlug": null,
+      "movieType": null
+    },
+    {
+      "id": "EDI20250639",
+      "title": "Springsteen: Deliver Me from Nowhere",
+      "originalTitle": "Springsteen: Deliver Me from Nowhere",
+      "age": "9 år",
+      "ageReason": "Denne filmen inneholder lengre partier med dyster stemning, samt skremmende farssikkelser som kan virke skremmende på de minste. Filmen får derfor 9 år.",
+      "recommendedAge": "Voksne",
+      "runningTime": "1 t. 58 min.",
+      "nationality": [
+        "USA"
+      ],
+      "originalLanguage": [],
+      "genres": [],
+      "cast": "Jeremy Allen White, Jeremy Strong, Paul Walter Hauser, Stephen Graham, Odessa Young, Gaby Hoffman, Marc Maron, David Krumholtz",
+      "director": "Scott Cooper",
+      "distributor": "The Walt Disney Company Nordic",
+      "ingress": "Springsteen: Deliver Me from Nowhere er filmen om Bruce Springsteen.",
+      "description": "Vi følger Springsteen, spilt av Jeremy Allen White, i perioden da han lagde albumet Nebraska, utgitt i 1982. Han var da en ung musiker som forsøkte å navigere presset fra berømmelsen og samtidig håndtere skyggene fra sin egen fortid. Albumet ble spilt inn på en 4-spors opptaker på Springsteens eget soverom og hadde en avgjørende rolle i livet hans. Det regnes som ett av hans viktigste album; en rå og ektefølt akustisk plate om tapte sjeler på søken etter mening.",
+      "oneliner": "",
+      "posterUrl": "https://cdn.sanity.io/images/j0wdmpyb/production/20bb8820cd68ec7b900d8ab1db43da1c80fdf8a9-1500x2143.webp",
+      "stills": [
+        "https://cdn.sanity.io/images/j0wdmpyb/production/9f85dcf9cbd206221c860ddf8f0da60b9f455447-3840x1606.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/aa7427d0928b6dcf06a0f3a79bb028b65d762a56-3840x1606.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/fff0b255f635655358ff78f85b4d07ccf9d2260a-3840x1606.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/e6eda6b81bffa8e9d3241e236b5eaf9e5c1afb33-3840x1606.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/7cfecc8c98ea73133dbfd0defa011cc89c3ce3b0-3840x1606.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/fa0a9380a5022ef73729d12083fae73ec9a4d267-3499x5250.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/a85a1708552a283477f55087a51401d522881a64-3840x1606.jpg"
+      ],
+      "trailers": [
+        "116694111"
+      ],
+      "isKinoklubb": true,
+      "programTitle": "Springsteen: Deliver Me from Nowhere",
+      "programSlug": null,
+      "movieType": null
+    },
+    {
+      "id": "UIP20221390",
+      "title": "Wicked: For Good",
+      "originalTitle": "Wicked: For Good",
+      "age": "9 år",
+      "ageReason": "Filmen inneholder noen actionfylte sekvenser som kan virke skremmende for barn. Den får derfor aldersgrense 9 år.",
+      "recommendedAge": "",
+      "runningTime": "2 t. 18 min.",
+      "nationality": [
+        "USA"
+      ],
+      "originalLanguage": [
+        "Norsk",
+        "Engelsk"
+      ],
+      "genres": [
+        {
+          "_createdAt": "2022-05-18T12:13:32Z",
+          "_id": "qf6HKovmGfak3fi7Jy5P23",
+          "_rev": "At3pe7rl8ClblZrBfUyHIH",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:22:24Z",
+          "fomId": 1368,
+          "name": "Familiefilm"
+        },
+        {
+          "_createdAt": "2022-05-18T12:13:44Z",
+          "_id": "qf6HKovmGfak3fi7Jy5Pw9",
+          "_rev": "W2etTPhLHMI4IZP4gJ9BSL",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:23:50Z",
+          "fomId": 1356,
+          "name": "Musikal"
+        }
+      ],
+      "cast": "Ariana Grande, Cynthia Erivo, Jonathan Bailey, Jeff Goldblum, Michelle Yeoh, Bowen Yang, Peter Dinklage, Ethan Slater",
+      "director": "Jon M. Chu",
+      "distributor": "United International Pictures",
+      "ingress": "Den etterlengtede andre delen av Wicked!",
+      "description": "Etter å ha utfordret trollmannen fra Oz' regime, må Elphaba tilpasse seg sin nye identitet som \"den onde heksa fra vest\". Samtidig har trollmannen gitt Glinda kallenavnet \"Glinda den gode\", og offisiell status som nasjonens beskytter mot Elphaba. Skjebnesvangre avgjørelser må bli tatt i dette avsluttende kapittelet om de to tidligere bestevennene.",
+      "oneliner": "",
+      "posterUrl": "https://cdn.sanity.io/images/j0wdmpyb/production/a3cf37b7d2ffee77e8643dff0dd7c1da52104ee5-1500x2143.webp",
+      "stills": [
+        "https://cdn.sanity.io/images/j0wdmpyb/production/2a409dc89f0e1c7db8277dbd7193ebb939dc507f-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/4ca95321603f56b8fe0efc126d9b6fda748562e5-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/b5c82a167639bb723a90096e82ab6a584bb4bf24-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/9a9a56c64d74928e8d1e32159d45ce5f0850a65b-4000x2668.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/8beb85a305c783d86a4523a2a5e66a7c6ba77b21-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/c46c3d6f0998b5b80a962748e87157f346e5b8ce-4000x2668.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/9e4635715304539c01bc9f298e7516d8a7937e84-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/ff2290cbb8299bfd7cb94d31ca451795d8f0df98-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/1646d607c927785982302a2647670834cd4cbef0-3582x1500.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/508560b00b79cf3a92481e0ceba2ad0ca8ca5606-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/63419b6c7e8e85e1cd63a78c5a081c0abde3880d-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/72fca0b4120e4e665ac0c68d98441781c569f64c-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/ec43782df723b5de02281af36db106b857d32a8f-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/0bd4f04b6d935eb554817b9d8ea40ab46849626b-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/eaa167ed6d31c5beb8d1ceee006755e5eabb3a15-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/b0aacb56cadfecacac335184e407a9a203ee452d-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/77c32ac44e9dc057132e5e005f793fc5ef89741e-4000x2668.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/1ae79206f86120e5a645e6fff6e4ea30318ffab8-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/883f0057d8642e2b1d85b5060e8de41e8c728448-4000x2667.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/8bb12587630ef53971f80d35dc508e07dfb3d57d-4000x2667.webp"
+      ],
+      "trailers": [
+        "118351240"
+      ],
+      "isKinoklubb": false,
+      "programTitle": "Wicked: For Good",
+      "programSlug": null,
+      "movieType": null
+    },
+    {
+      "id": "BVI20240782",
+      "title": "Zootropolis 2",
+      "originalTitle": "Zootopia 2",
+      "age": "6 år",
+      "ageReason": "Enkelte mørke og dramatiske scener med truende skikkelser gjør at denne filmen får 6- årsgrense.",
+      "recommendedAge": "Barn",
+      "runningTime": "1 t. 45 min.",
+      "nationality": [
+        "USA"
+      ],
+      "originalLanguage": [],
+      "genres": [
+        {
+          "_createdAt": "2022-05-18T12:13:22Z",
+          "_id": "W2etTPhLHMI4IZP4gJ1zR7",
+          "_rev": "At3pe7rl8ClblZrBfUynb4",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:26:12Z",
+          "fomId": 1377,
+          "name": "Animasjon"
+        },
+        {
+          "_createdAt": "2022-05-18T12:13:32Z",
+          "_id": "qf6HKovmGfak3fi7Jy5P23",
+          "_rev": "At3pe7rl8ClblZrBfUyHIH",
+          "_type": "genre",
+          "_updatedAt": "2022-05-18T13:22:24Z",
+          "fomId": 1368,
+          "name": "Familiefilm"
+        }
+      ],
+      "cast": "",
+      "director": "Jared Bush, Byron Howard",
+      "distributor": "The Walt Disney Company Nordic",
+      "ingress": "",
+      "description": "En mystisk reptil har dukket opp i Zootropolis, og snudd hele dyremetropolen på hodet. Detektivene Judy Hopps og Nick Wilde er på saken!",
+      "oneliner": "",
+      "posterUrl": "https://cdn.sanity.io/images/j0wdmpyb/production/be921a8cfb20cb2d2dd79b47d0f68fe1ae55e06c-1500x2143.webp",
+      "stills": [
+        "https://cdn.sanity.io/images/j0wdmpyb/production/7ff208efc872a3b467365346073a894287c6ec4c-4000x2250.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/92f4561785cee4ae9d35ccab9d49b1b401121902-4000x1675.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/b0d4ce2f809bbaa80f745026bc7f18314fe43f8a-4000x1675.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/dac8fd0712f28deee8cc230109e5d0c3a10c24cf-4000x1675.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/7935c7b0ad8ab1c270d07e30f38edc2a9a4b7ff5-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/79c0c38149ec8e8b2cce706a1419b7b8f6970257-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/96408734c535a9198ad6c2d1607a2eb1e21640b5-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/987257276db9844cd9753cfeee543dd582bc92d9-1920x1080.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/10dadac89d9082578c3bba6a2f33c0227091e535-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/f7ddf1a58f3bdbf67f96eb55397aece743989d05-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/d961950325b690368b36198fc419f83cc889ba20-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/3b71c6a7bbe5b1a02080236fc7de372884d9b4f0-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/b9d59ee4eb9596701620b318edaab7854098f79f-4000x1675.webp",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/5b1e52a72389da3d1ea4042f1058e496e1175708-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/145d97b74805d9c21e381bc2619d058e2d690daa-1920x804.jpg",
+        "https://cdn.sanity.io/images/j0wdmpyb/production/7a2ae85e182df86338ff7395c6ca1e349291730c-1920x804.jpg"
+      ],
+      "trailers": [
+        "117576997"
+      ],
+      "isKinoklubb": false,
+      "programTitle": "Zootropolis 2",
+      "programSlug": null,
+      "movieType": null
+    }
+  ]
+}

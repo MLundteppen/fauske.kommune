@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fauske kino – program + filmdetaljer (debug)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      color: #111827;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px 18px 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+    }
+
+    .subtitle {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .meta span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .meta code {
+      background: #f3f4f6;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .loading,
+    .error,
+    .empty {
+      font-size: 14px;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
+    .loading {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .error {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    .empty {
+      background: #f9fafb;
+      color: #4b5563;
+      border: 1px dashed #d1d5db;
+    }
+
+    .list {
+      margin-top: 16px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .item {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      background: #ffffff;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .item-index {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .section-label {
+      margin-top: 8px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9ca3af;
+    }
+
+    .fields {
+      margin: 2px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .field {
+      display: flex;
+      gap: 6px;
+      padding: 2px 0;
+      border-top: 1px solid #f3f4f6;
+      align-items: flex-start;
+    }
+
+    .field:first-child {
+      border-top: none;
+    }
+
+    .field-key {
+      min-width: 130px;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+      font-size: 11px;
+      text-transform: lowercase;
+      color: #6b7280;
+    }
+
+    .field-value {
+      flex: 1;
+      word-break: break-word;
+      white-space: pre-line;
+    }
+
+    .field-value a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .field-value a:hover {
+      text-decoration: underline;
+    }
+
+    .shows-wrapper {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed #e5e7eb;
+    }
+
+    .show-card {
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin-top: 4px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+    }
+
+    .show-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: #374151;
+    }
+
+    .poster-img {
+      max-width: 160px;
+      border-radius: 8px;
+      margin: 6px 0;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 12px;
+      }
+      .field-key {
+        min-width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Fauske kino – program + filmdetaljer (debug)</h1>
+    <p class="subtitle">
+      Viser alt som er hentet fra <code>fauskekino_program.json</code> og <code>fauskekino_filmer.json</code> med tags for feltnavn.
+    </p>
+
+    <div class="meta">
+      <span>Program sist oppdatert: <strong id="program-updated">–</strong></span>
+      <span>Filmer sist oppdatert: <strong id="films-updated">–</strong></span>
+    </div>
+
+    <div id="loading" class="loading">Laster kinodata …</div>
+    <div id="error" class="error" style="display:none;"></div>
+    <div id="empty" class="empty" style="display:none;">
+      Fant ingen filmer i <code>fauskekino_program.json</code>.
+    </div>
+
+    <ul id="list" class="list"></ul>
+  </div>
+
+  <script>
+    const PROGRAM_URL = "data/fauskekino_program.json";
+    const FILMS_URL = "data/fauskekino_filmer.json";
+
+    const loadingEl = document.getElementById("loading");
+    const errorEl = document.getElementById("error");
+    const emptyEl = document.getElementById("empty");
+    const listEl = document.getElementById("list");
+    const programUpdatedEl = document.getElementById("program-updated");
+    const filmsUpdatedEl = document.getElementById("films-updated");
+
+    function formatLastUpdated(isoStr) {
+      if (!isoStr) return "–";
+      const d = new Date(isoStr);
+      if (isNaN(d.getTime())) return isoStr;
+      return (
+        d.toLocaleDateString("nb-NO", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }) +
+        " kl. " +
+        d.toLocaleTimeString("nb-NO", {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    }
+
+    function createField(key, value) {
+      const li = document.createElement("li");
+      li.className = "field";
+
+      const keySpan = document.createElement("span");
+      keySpan.className = "field-key";
+      keySpan.textContent = key;
+
+      const valueSpan = document.createElement("span");
+      valueSpan.className = "field-value";
+
+      if (
+        typeof value === "string" &&
+        (value.startsWith("http://") || value.startsWith("https://"))
+      ) {
+        const a = document.createElement("a");
+        a.href = value;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = value;
+        valueSpan.appendChild(a);
+      } else if (Array.isArray(value)) {
+        if (value.length && typeof value[0] !== "object") {
+          valueSpan.textContent = value.join(", ");
+        } else {
+          valueSpan.textContent = JSON.stringify(value, null, 2);
+        }
+      } else if (value && typeof value === "object") {
+        valueSpan.textContent = JSON.stringify(value);
+      } else {
+        valueSpan.textContent =
+          value === null || value === undefined || value === ""
+            ? "—"
+            : String(value);
+      }
+
+      li.appendChild(keySpan);
+      li.appendChild(valueSpan);
+      return li;
+    }
+
+    function renderData(programData, filmsData) {
+      const movies = programData.movies || [];
+      const films = filmsData.films || [];
+
+      if (programData.lastUpdated) {
+        programUpdatedEl.textContent = formatLastUpdated(programData.lastUpdated);
+      }
+      if (filmsData.lastUpdated) {
+        filmsUpdatedEl.textContent = formatLastUpdated(filmsData.lastUpdated);
+      }
+
+      if (!movies.length) {
+        emptyEl.style.display = "block";
+        return;
+      }
+
+      // Map detaljer på id for rask lookup
+      const filmById = {};
+      films.forEach(f => {
+        if (f.id) {
+          filmById[f.id] = f;
+        }
+      });
+
+      movies.forEach((movie, index) => {
+        const li = document.createElement("li");
+        li.className = "item";
+
+        const header = document.createElement("div");
+        header.className = "item-header";
+
+        const title = document.createElement("p");
+        title.className = "item-title";
+        title.textContent = movie.title || "(uten tittel)";
+
+        const idx = document.createElement("span");
+        idx.className = "item-index";
+        idx.textContent = `#${index + 1}  (id=${movie.id || "–"})`;
+
+        header.appendChild(title);
+        header.appendChild(idx);
+        li.appendChild(header);
+
+        // ---- PROGRAM-DEL (fra fauskekino_program.json) ----
+        const programFields = document.createElement("ul");
+        programFields.className = "fields";
+
+        Object.keys(movie).forEach((key) => {
+          if (key === "shows") return; // håndteres separat
+          programFields.appendChild(createField(key, movie[key]));
+        });
+
+        if (programFields.children.length) {
+          const label = document.createElement("div");
+          label.className = "section-label";
+          label.textContent = "program (fauskekino_program.json)";
+          li.appendChild(label);
+          li.appendChild(programFields);
+        }
+
+        // shows
+        if (Array.isArray(movie.shows) && movie.shows.length) {
+          const showsWrapper = document.createElement("div");
+          showsWrapper.className = "shows-wrapper";
+
+          const showsLabel = document.createElement("div");
+          showsLabel.className = "section-label";
+          showsLabel.textContent = `shows (${movie.shows.length})`;
+          showsWrapper.appendChild(showsLabel);
+
+          movie.shows.forEach((show, sIdx) => {
+            const showCard = document.createElement("div");
+            showCard.className = "show-card";
+
+            const showTitle = document.createElement("div");
+            showTitle.className = "show-title";
+            showTitle.textContent = `show #${sIdx + 1}`;
+            showCard.appendChild(showTitle);
+
+            const showFields = document.createElement("ul");
+            showFields.className = "fields";
+
+            Object.keys(show).forEach((sKey) => {
+              showFields.appendChild(createField(sKey, show[sKey]));
+            });
+
+            showCard.appendChild(showFields);
+            showsWrapper.appendChild(showCard);
+          });
+
+          li.appendChild(showsWrapper);
+        }
+
+        // ---- FILM-DETALJER (fra fauskekino_filmer.json) ----
+        const film = movie.id ? filmById[movie.id] : null;
+
+        if (film) {
+          const detailsLabel = document.createElement("div");
+          detailsLabel.className = "section-label";
+          detailsLabel.textContent = "filmdetaljer (fauskekino_filmer.json)";
+          li.appendChild(detailsLabel);
+
+          // Plakat som bilde (i tillegg til at posterUrl vises som felt)
+          if (film.posterUrl) {
+            const img = document.createElement("img");
+            img.className = "poster-img";
+            img.src = film.posterUrl;
+            img.alt = "Plakat";
+            li.appendChild(img);
+          }
+
+          const filmFields = document.createElement("ul");
+          filmFields.className = "fields";
+
+          Object.keys(film).forEach((fKey) => {
+            // Vi hopper ikke over noe – du får alle tags og verdier
+            filmFields.appendChild(createField(fKey, film[fKey]));
+          });
+
+          li.appendChild(filmFields);
+        }
+
+        listEl.appendChild(li);
+      });
+    }
+
+    async function loadData() {
+      try {
+        const [programRes, filmsRes] = await Promise.all([
+          fetch(PROGRAM_URL, { cache: "no-store" }),
+          fetch(FILMS_URL, { cache: "no-store" }),
+        ]);
+
+        if (!programRes.ok) {
+          throw new Error(
+            "Feil ved henting av fauskekino_program.json: " +
+              programRes.status +
+              " " +
+              programRes.statusText
+          );
+        }
+
+        if (!filmsRes.ok) {
+          throw new Error(
+            "Feil ved henting av fauskekino_filmer.json: " +
+              filmsRes.status +
+              " " +
+              filmsRes.statusText
+          );
+        }
+
+        const programData = await programRes.json();
+        const filmsData = await filmsRes.json();
+
+        renderData(programData, filmsData);
+      } catch (err) {
+        console.error(err);
+        errorEl.style.display = "block";
+        errorEl.textContent =
+          "Det oppstod en feil ved henting/visning av kinodata: " + err.message;
+      } finally {
+        loadingEl.style.display = "none";
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
