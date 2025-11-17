@@ -122,6 +122,23 @@ def extract_items_from_html(html: str) -> List[Dict[str, Any]]:
         if cat_el:
             category = cat_el.get_text(" ", strip=True)
 
+        # Ingress på listesiden ligger i et <article class="text-article"> rett under overskriften.
+        # Prøv å finne denne ved å gå opp til et felles "kort"-element og lete der.
+        card_root = a
+        article_ingress = None
+        while card_root is not None:
+            article_el = card_root.find(
+                "article",
+                class_=lambda c: c and "text-article" in c,
+            )
+            if article_el is not None:
+                article_ingress = article_el.get_text(" ", strip=True)
+                break
+            card_root = card_root.parent
+
+        if article_ingress:
+            ingress = article_ingress
+
         # Fallback om vi ikke fant tittel/ingress strukturert:
         if title is None:
             # Bruk hele rest som tittel
