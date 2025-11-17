@@ -160,13 +160,69 @@ def extract_items_from_html(html: str) -> List[Dict[str, Any]]:
     return items
 
 
+def extract_article_text(html: str) -> Dict[str, Optional[str]]:
+    """
+    Henter ut ingress/tekst fra selve artikkelsiden.
+
+    Vi ser etter:
+      <article class="text-article"> ... </article>
+
+    Returnerer både ren tekst og rå HTML-strengen, slik at appen senere
+    kan velge om den vil vise formatert tekst eller kun plain text.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+
+    article = soup.find(
+        "article",
+        class_=lambda c: c and "text-article" in c,
+    )
+    if not article:
+        return {"articleBody": None, "articleHtml": None}
+
+    # Ren tekst (med linjeskift)
+    body_text = article.get_text("\n", strip=True)
+    # HTML-streng for hele artikkelen
+    body_html = str(article)
+
+    return {
+        "articleBody": body_text,
+        "articleHtml": body_html,
+    }
+
+
 def scrape_fauskenf_nyheter() -> Dict[str, Any]:
-    """Henter HTML fra nyhetssiden og returnerer strukturert JSON-klar dict."""
+    """
+    Henter HTML fra nyhetssiden og returnerer strukturert JSON-klar dict.
+
+    Steg:
+      1) Hent liste-siden med alle nyhetskortene.
+      2) Ekstraher kort-info (dato, tittel, ingress, bilde, lenke).
+      3) For hver sak: gå inn på artikkelsiden og hent
+         <article class="text-article"> som er selve ingressen/teksten.
+    """
     headers = {"User-Agent": USER_AGENT}
     resp = requests.get(LIST_URL, headers=headers, timeout=30)
     resp.raise_for_status()
 
     items = extract_items_from_html(resp.text)
+
+    # Hent detaljer for hver artikkel
+    for item in items:
+        url = item.get("url")
+        if not url:
+            continue
+
+        try:
+            detail_resp = requests.get(url, headers=headers, timeout=30)
+            detail_resp.raise_for_status()
+            details = extract_article_text(detail_resp.text)
+            item["articleBody"] = details.get("articleBody")
+            item["articleHtml"] = details.get("articleHtml")
+        except Exception as e:
+            # Ikke stopp hele scraperen om én artikkel feiler
+            print(f"ADVARSEL: Klarte ikke hente artikkel for {url}: {e}")
+            item["articleBody"] = None
+            item["articleHtml"] = None
 
     return {
         "lastUpdated": datetime.now(timezone.utc).isoformat(),
