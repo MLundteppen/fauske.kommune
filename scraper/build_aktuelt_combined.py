@@ -1,148 +1,108 @@
 #!/usr/bin/env python3
 """
-Bygger en felles Aktuelt-feed ved å kombinere:
+Bygger en kombinert "aktuelt"-fil fra:
 
-- data/nyheter.json           (Fauske kommune)
-- data/fauskenf_nyheter.json  (Fauske Næringsforum)
+- Fauske kommune (data/nyheter.json)
+- Fauske Næringsforum (data/fauskenf_nyheter.json)
 
 Output:
-- data/aktuelt_combined.json
+  data/aktuelt_combined.json
 
-Struktur:
+Felles struktur per item:
 {
-  "lastUpdated": "...",
-  "items": [
-    {
-      "id": "...",
-      "source": "fauske_kommune" | "fauskenf",
-      "sourceName": "Fauske kommune" | "Fauske Næringsforum",
-      "title": "...",
-      "url": "...",
-      "image": "...",
-      "published": "YYYY-MM-DD" (så langt vi klarer),
-      "publishedText": "lesbar dato",
-      "ingress": "...",
-      "body": "...",       # typisk bare for Fauske kommune-saker
-      "category": "...",   # hvis tilgjengelig
-      "raw": { ... }       # original item for debugging / fremtidig bruk
-    },
-    ...
-  ]
+  "id": "...",
+  "source": "fauske_kommune" | "fauskenf",
+  "sourceName": "...",
+  "title": "...",
+  "url": "...",
+  "image": "...",
+  "published": "YYYY-MM-DD",
+  "publishedText": "13. november 2025",
+  "ingress": "...",
+  "body": "...",
+  "category": "...",
+  "raw": { ... original data ... }
 }
 """
 
 import json
-from datetime import datetime
+from datetime import datetime, date, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT_DIR / "data"
 
-KOMMUNE_PATH = DATA_DIR / "nyheter.json"
-NF_PATH = DATA_DIR / "fauskenf_nyheter.json"
+FAUSKE_KOMMUNE_PATH = DATA_DIR / "nyheter.json"
+FAUSKENF_PATH = DATA_DIR / "fauskenf_nyheter.json"
 OUTPUT_PATH = DATA_DIR / "aktuelt_combined.json"
 
 
-def parse_date_fauskenf(date_str: Optional[str]) -> Optional[str]:
-    """
-    Fauskenf bruker trolig format 'dd.mm.yyyy'.
-    Returnerer ISO 'yyyy-mm-dd' hvis vi klarer det, ellers None.
-    """
-    if not date_str:
+MONTHS_NO = {
+    1: "januar",
+    2: "februar",
+    3: "mars",
+    4: "april",
+    5: "mai",
+    6: "juni",
+    7: "juli",
+    8: "august",
+    9: "september",
+    10: "oktober",
+    11: "november",
+    12: "desember",
+}
+
+
+def to_no_date_text(d: date) -> str:
+    """Returnerer dato med norsk månedsnavn, f.eks. '13. november 2025'."""
+    return f"{d.day}. {MONTHS_NO[d.month]} {d.year}"
+
+
+def parse_ddmmyyyy(date_str: str) -> Optional[date]:
+    """Parser 'dd.mm.yyyy' til date-objekt."""
+    try:
+        return datetime.strptime(date_str, "%d.%m.%Y").date()
+    except Exception:
         return None
-    try:
-        dt = datetime.strptime(date_str.strip(), "%d.%m.%Y")
-        return dt.date().isoformat()
-    except ValueError:
-        # fallback hvis det senere blir endret til ISO direkte
-        try:
-            return datetime.fromisoformat(date_str.strip()).date().isoformat()
-        except Exception:
-            return None
 
 
-def parse_date_sortkey(date_str: Optional[str]) -> datetime:
-    """
-    Gjør publiseringsdato om til noe vi kan sortere på.
-    Hvis vi ikke klarer å tolke datoen -> returnerer et "gammelt" tidspunkt.
-    """
-    if not date_str:
-        return datetime.min
-    # Prøv ISO først (2025-11-13 eller 2025-11-13T...)
-    try:
-        return datetime.fromisoformat(date_str)
-    except Exception:
-        pass
-
-    # Prøv kun dato-delen hvis det er 'YYYY-MM-DD'
-    try:
-        return datetime.strptime(date_str[:10], "%Y-%m-%d")
-    except Exception:
-        pass
-
-    # Prøv dd.mm.yyyy
-    try:
-        return datetime.strptime(date_str.strip(), "%d.%m.%Y")
-    except Exception:
-        return datetime.min
-
-
-def load_kommune_items() -> List[Dict[str, Any]]:
-    """
-    Leser nyheter fra data/nyheter.json (Fauske kommune) og normaliserer.
-    Forventet struktur (fra scraperen din):
-    {
-      "lastUpdated": "...",
-      "items": [
-        {
-          "title": "...",
-          "url": "...",
-          "imageUrl": "...",
-          "published": "2025-11-13",
-          "publishedText": "13. november 2025",
-          "ingress": "...",
-          "body": "...",
-          "bodyHtml": "...",
-          "source": "forside-aktuelt-env-card"
-        },
-        ...
-      ]
-    }
-    """
-    if not KOMMUNE_PATH.exists():
+def load_fauske_kommune_items() -> List[Dict[str, Any]]:
+    """Leser data fra nyheter.json (Fauske kommune) og normaliserer."""
+    if not FAUSKE_KOMMUNE_PATH.exists():
+        print(f"ADVARSEL: Fant ikke {FAUSKE_KOMMUNE_PATH}")
         return []
 
-    raw = json.loads(KOMMUNE_PATH.read_text(encoding="utf-8") or "{}")
-    items = raw.get("items") or []
+    data = json.loads(FAUSKE_KOMMUNE_PATH.read_text(encoding="utf-8"))
+    items = data.get("items", [])
 
     normalized: List[Dict[str, Any]] = []
 
     for item in items:
-        title = item.get("title")
-        url = item.get("url")
-        image = item.get("imageUrl") or item.get("image")
-        published = item.get("published")  # ISO yyyy-mm-dd
-        published_text = item.get("publishedText") or published
+        title = item.get("title") or ""
+        url = item.get("url") or ""
+        image = item.get("imageUrl") or None
 
-        # Lag en noenlunde stabil id basert på URL eller tittel
-        base_id = url or title or "kommune-unknown"
-        base_id = base_id.rstrip("/").rsplit("/", 1)[-1]
-        norm_id = "fauske_kommune-" + base_id
+        published_iso = item.get("published")  # forventes 'YYYY-MM-DD'
+        published_text = item.get("publishedText") or published_iso or ""
+
+        # id: bruk published + slug fra url hvis mulig
+        slug = url.rstrip("/").rsplit("/", 1)[-1] if url else title
+        item_id = f"fauske_kommune-{published_iso}-{slug}"
 
         normalized.append(
             {
-                "id": norm_id,
+                "id": item_id,
                 "source": "fauske_kommune",
                 "sourceName": "Fauske kommune",
                 "title": title,
                 "url": url,
                 "image": image,
-                "published": published,
+                "published": published_iso,
                 "publishedText": published_text,
-                "ingress": item.get("ingress"),
+                "ingress": item.get("ingress") or "",
                 "body": item.get("body"),
-                "category": item.get("category"),
+                "category": None,  # evt. legge til senere om du vil
                 "raw": item,
             }
         )
@@ -150,61 +110,53 @@ def load_kommune_items() -> List[Dict[str, Any]]:
     return normalized
 
 
-def load_nf_items() -> List[Dict[str, Any]]:
-    """
-    Leser nyheter fra data/fauskenf_nyheter.json (Fauske Næringsforum) og normaliserer.
-
-    Forventet struktur (fra scrape_fauskenf_nyheter.py):
-    {
-      "lastUpdated": "...",
-      "items": [
-        {
-          "id": "fauskenf-2025-11-17-...",
-          "source": "fauskenf",
-          "sourceName": "Fauske Næringsforum",
-          "date": "17.11.2025",
-          "title": "...",
-          "ingress": "...",
-          "category": "...",
-          "image": "https://...",
-          "url": "https://...",
-          "rawText": "..."
-        },
-        ...
-      ]
-    }
-    """
-    if not NF_PATH.exists():
+def load_fauskenf_items() -> List[Dict[str, Any]]:
+    """Leser data fra fauskenf_nyheter.json (Fauske Næringsforum) og normaliserer."""
+    if not FAUSKENF_PATH.exists():
+        print(f"ADVARSEL: Fant ikke {FAUSKENF_PATH}")
         return []
 
-    raw = json.loads(NF_PATH.read_text(encoding="utf-8") or "{}")
-    items = raw.get("items") or []
+    data = json.loads(FAUSKENF_PATH.read_text(encoding="utf-8"))
+    items = data.get("items", [])
 
     normalized: List[Dict[str, Any]] = []
 
     for item in items:
-        title = item.get("title")
-        url = item.get("url")
-        image = item.get("image")
-        date_str = item.get("date")  # dd.mm.yyyy
-        iso_date = parse_date_fauskenf(date_str)
+        raw_id = item.get("id") or ""
+        title = item.get("title") or ""
+        url = item.get("url") or ""
+        image = item.get("image") or None
+        raw_date_str = item.get("date") or ""  # 'dd.mm.yyyy' fra scraperen
 
-        base_id = item.get("id") or url or title or "fauskenf-unknown"
-        norm_id = base_id
+        d_obj = parse_ddmmyyyy(raw_date_str)
+        if d_obj is not None:
+            published_iso = d_obj.isoformat()  # 'YYYY-MM-DD'
+            published_text = to_no_date_text(d_obj)  # '13. november 2025'
+        else:
+            # fallback: bruk det vi har
+            published_iso = None
+            published_text = raw_date_str
+
+        # Ingress: bruk articleBody som ingress (slik du ønsker), evt. fallback
+        article_body = item.get("articleBody")
+        ingress = article_body or item.get("ingress") or ""
+        body = article_body  # inntil vi eventuelt scraper fulltekst senere
+
+        category = item.get("category")
 
         normalized.append(
             {
-                "id": norm_id,
+                "id": raw_id,
                 "source": "fauskenf",
                 "sourceName": "Fauske Næringsforum",
                 "title": title,
                 "url": url,
                 "image": image,
-                "published": iso_date,
-                "publishedText": date_str,
-                "ingress": item.get("ingress"),
-                "body": None,  # har vi ikke (enda)
-                "category": item.get("category"),
+                "published": published_iso,
+                "publishedText": published_text,
+                "ingress": ingress,
+                "body": body,
+                "category": category,
                 "raw": item,
             }
         )
@@ -213,37 +165,34 @@ def load_nf_items() -> List[Dict[str, Any]]:
 
 
 def build_combined() -> Dict[str, Any]:
-    kommune_items = load_kommune_items()
-    nf_items = load_nf_items()
+    """Bygger kombinert aktuelt-listen."""
+    kommune_items = load_fauske_kommune_items()
+    fauskenf_items = load_fauskenf_items()
 
-    all_items = kommune_items + nf_items
+    all_items = kommune_items + fauskenf_items
 
-    # Sorter etter published (nyeste først)
-    all_items.sort(
-        key=lambda item: parse_date_sortkey(item.get("published")),
-        reverse=True,
-    )
+    # Sorter nyeste først på published (ISO). Hvis published mangler, dytt de bakerst.
+    def sort_key(it: Dict[str, Any]) -> str:
+        p = it.get("published")
+        return p or ""
+
+    all_items.sort(key=sort_key, reverse=True)
 
     return {
-        "lastUpdated": datetime.now().isoformat(),
+        "lastUpdated": datetime.now(timezone.utc).isoformat(),
         "items": all_items,
     }
 
 
 def main() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-
     combined = build_combined()
 
     OUTPUT_PATH.write_text(
         json.dumps(combined, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-
-    print(
-        f"Skrev kombinert Aktuelt-fil med {len(combined.get('items', []))} saker "
-        f"til {OUTPUT_PATH}"
-    )
+    print(f"Skrev {len(combined.get('items', []))} saker til {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
