@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2025-11-19T07:20:34.428854",
+  "lastUpdated": "2025-11-19T08:29:07.771832",
   "items": [
+    {
+      "title": "Vassryggveien stengt",
+      "url": "https://www.fauske.kommune.no/nyheter-forside/2025-11-19-vassryggveien-stengt",
+      "imageUrl": "https://www.fauske.kommune.no/images/200.4ad9f95819a7ba4d0363197/1763537732567/Kart%20stenging%20veg%20Vassryggveien.jpg",
+      "published": "2025-11-19",
+      "publishedText": "19. november 2025",
+      "ingress": "På grunn av snøtunge busker og trær i vegbanen vil Vassryggveien bli stengt fra 19. november og inntil videre.",
+      "body": "Stengningen gjelder fra Fv826 ved Kvitblikvatnet til krysset Vassryggveien - Djupdalsveien ved Valvatnet, se vedlagte kart.\nOmkjøring er via Kvitblik og Djupdalsveien.",
+      "bodyHtml": "<p class=\"normal\">Stengningen gjelder fra Fv826 ved Kvitblikvatnet til krysset Vassryggveien - Djupdalsveien ved Valvatnet, se vedlagte kart.</p><p class=\"normal\">Omkjøring er via Kvitblik og Djupdalsveien.</p>",
+      "source": "forside-aktuelt-env-card"
+    },
     {
       "title": "Refleksdemonstrasjon for skoleelever – midlertidig stenging av veier",
       "url": "https://www.fauske.kommune.no/nyheter-forside/2025-11-13-refleksdemonstrasjon-for-skoleelever---midlertidig-stenging-av-veier",
@@ -54,17 +65,6 @@
       "ingress": "Du kan ta drop-in livmorshalsprøve ved Valnesfjord legekontor og Fauske legesenter 18. - 20. november.",
       "body": "Tilbudet er til deg som ikke har tatt livsmorshalsprøve på fem år eller mer og er mellom 25 og 69 år. Du trenger ikke å ha fastlege ved et av legekontorene eller å bestille time for å prøven.\nTid og sted\nFauske legesenter 18. november kl. 15-17\nFauske legesenter 19. november kl. 15-17\nValnesfjord legekontor 19. november kl. 15-17\nValnesfjord legekontor 20. november kl. 9-11\nOBS! Hvis du har symptomer som blødninger, unormale smerter eller utflod, må du snakke med fastlegen din.",
       "bodyHtml": "<p class=\"normal\">Tilbudet er til deg som ikke har tatt livsmorshalsprøve på fem år eller mer og er mellom 25 og 69 år. Du trenger ikke å ha fastlege ved et av legekontorene eller å bestille time for å prøven.</p><h2 class=\"heading-2\" id=\"h-Tidogsted\">Tid og sted</h2><p class=\"normal\">Fauske legesenter 18. november kl. 15-17<br/>Fauske legesenter 19. november kl. 15-17</p><p class=\"normal\">Valnesfjord legekontor 19. november kl. 15-17<br/>Valnesfjord legekontor 20. november kl. 9-11</p><p class=\"normal\">OBS! Hvis du har symptomer som blødninger, unormale smerter eller utflod, må du snakke med fastlegen din. </p>",
-      "source": "forside-aktuelt-env-card"
-    },
-    {
-      "title": "Fredsutstilling på Helsetunet",
-      "url": "https://www.fauske.kommune.no/nyheter-forside/2025-10-29-fredsutstilling-pa-helsetunet",
-      "imageUrl": "https://www.fauske.kommune.no/images/200.4ff8dba919a0f52c85599ba/1761729840262/20250926_123349.jpg",
-      "published": "2025-10-29",
-      "publishedText": "29. oktober 2025",
-      "ingress": "I anledning FN-dagen, 24. oktober, åpnet en helt spesiell maleriutstilling på Helsetunet.",
-      "body": "Den inneholder 27 bilder malt av pasienter og brukere ved Fauske sykehjem og Solstua dagsenter, samt 8 bilder laget av barn i Vestmyra barnehage.",
-      "bodyHtml": "<p class=\"normal\">Den inneholder 27 bilder malt av pasienter og brukere ved Fauske sykehjem og Solstua dagsenter, samt 8 bilder laget av barn i Vestmyra barnehage.</p>",
       "source": "forside-aktuelt-env-card"
     }
   ]
